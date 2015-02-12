@@ -94,8 +94,35 @@ class Formerly_SubmissionElementType extends BaseElementType
 		}
 		else
 		{
-						return parent::getTableAttributeHtml($element, $attribute);
+			//Output JSON Objects in a nicer format
+			$jsnObject = json_decode($value);
+			if($jsnObject != null)
+			{
+				return Formerly_SubmissionElementType::arrayOutputFormatter($jsnObject);
+			}
+			else
+			{
+				return parent::getTableAttributeHtml($element, $attribute);
+			}
 		}
+	}
+
+	//New formatter for JSON objects from the Programic type
+	private function arrayOutputFormatter($arr)
+	{
+		$return = '';
+		foreach ($arr as $k => $v)
+		{
+			if(is_array($v)){
+				$v = arrayOutputFormatter($v);
+			}
+
+			if(strlen($v))
+			{
+				$return .= $k.': '.$v.' &nbsp; ';
+			}
+		}
+		return $return;
 	}
 
 	public function defineCriteriaAttributes()
