@@ -1,7 +1,26 @@
 {% extends '_layouts/cp' %}
+{% hook "jsonProcessCoded" %}
 {% set title = 'Submission ' ~ submission %}
 
+{% macro array_traverse(data) %}
+    {% for option, value in data %}
+    	{% if value is not empty %}
+	        <li>
+	        	{{option}}:
+	            {% if value is iterable %}
+	                <ul>
+	                    {{ _self.array_traverse(value) }}
+	                </ul>
+	            {% else %}
+	            	{{value}}
+	            {% endif %}
+	        </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
 {% block content %}
+
 	<table class="data fullwidth">
 		<tbody>
 			{% for question in submission.getForm().getQuestions() %}
@@ -17,6 +36,13 @@
 									<br>
 								{% endif %}
 							{% endfor %}
+						{% elseif question.type == 'Coded' %}
+							{% set data = jsonParsed[question.handle] %}
+							{% if data is iterable %}
+								<ul>{{ _self.array_traverse(data) }}</ul>
+							{% else %}
+								{{data}}
+							{% endif %}
 						{% else %}
 							{{ submission[question.handle] }}
 						{% endif %}

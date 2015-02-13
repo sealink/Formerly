@@ -83,7 +83,17 @@ class Formerly_SubmissionModel extends BaseElementModel
 			}
 			else
 			{
-				$summary .= $value;
+				if(is_array($value))
+				{
+					foreach( $value as $k => $v ) {
+					    $summary .= $k . ': ' . $v;
+					    $summary .= "\n";
+					}
+				}
+				else
+				{
+					$summary .= $value;
+				}
 			}
 
 			if ($i != count($questions) - 1)

@@ -10,7 +10,7 @@ class FormerlyPlugin extends BasePlugin
 
 	public function getVersion()
 	{
-	    return '1.2.1';
+	    return '1.3.0';
 	}
 
 	public function getDeveloper()
@@ -39,5 +39,22 @@ class FormerlyPlugin extends BasePlugin
 			'formerly/export'                                         => array('action' => 'formerly/export/index'),
 			'formerly/export/csv'                                     => array('action' => 'formerly/export/csv')
 		);
+	}
+
+	public function init()
+	{
+		//A way to get around display for JSON strings
+		craft()->templates->hook('jsonProcessCoded', function(&$context)
+		{
+			foreach($context["submission"]->getForm()->getQuestions() as $question)
+			{
+				if($question["type"] == 'Coded')
+				{
+					$context['jsonParsed'][$question["handle"]] = json_decode($context["submission"][$question["handle"]], true);
+				}
+			}
+		    $context['json'] = 'bar';
+		    //return "JSON! <pre>".print_r($context,true)."</pre>";
+		});
 	}
 }
