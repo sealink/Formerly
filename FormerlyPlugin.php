@@ -41,4 +41,19 @@ class FormerlyPlugin extends BasePlugin
 			'formerly/export/csv'                                     => array('action' => 'formerly/export/csv')
 		);
 	}
+
+	public function init()
+	{
+		//A way to get around display for JSON strings
+		craft()->templates->hook('jsonProcessCoded', function(&$context)
+		{
+			foreach($context["submission"]->getForm()->getQuestions() as $question)
+			{
+				if($question["type"] == 'Custom')
+				{
+					$context['jsonParsed'][$question["handle"]] = json_decode($context["submission"][$question["handle"]], true);
+				}
+			}
+		});
+	}
 }
