@@ -408,6 +408,50 @@ Set these config settings in /craft/config/general.php as needed
 							   id="{{ question.handle }}"
 							   name="questions[{{ question.handle }}]">
 					</div>
+					{% case 'Custom' %}
+						{% if "referer" in question.handle %}
+						{# Hidden Input Example for urls using 'form.html?referrer=eblast', or even changed by JS #}
+							<input type="hidden"
+								id="{{ question.handle }}"
+								name="questions[{{ question.handle }}]"
+								value="{{ craft.request.getQuery('referrer') is defined ? craft.request.getQuery('referrer') }}">
+						{% endif %}
+
+						{% if "tickets" in question.handle %}
+						{# Multiple Generated Select Lists Example - contents could come from other pages etc, saves as a JSON array in the submission #}
+							{% set customers = ["Adults", "Concession", "Child"] %}
+							<fieldset>
+								<legend>{{ question.name }}</legend>
+								{% if question.required %}At least one required{% endif %}
+
+								{% for customer in customers %}
+							    
+								<div class="hidden_label">
+									<select 
+										class="select"
+										id="{{ question.handle }}-{{customer|lower}}"
+										name="questions[{{ question.handle }}][{{customer}}]">
+										<option value="">-</option>
+										{% for i in 1..10 %}
+											{# Set previously submmited value #}
+											{% if submission is defined and submission[question.handle] is iterable %}
+												<option value="{{i}}" {% if submission[question.handle][customer] == i %}
+												selected
+												{% endif %}>{{i}}</option>
+											{% else %}
+												<option value="{{i}}">{{i}}</option>
+											{% endif %}
+										{% endfor %}
+									</select>
+
+									<label for="{{ question.handle }}-{{customer|lower}}">
+										{{customer}}
+									</label>
+								</div>
+								{% endfor %}
+							</fieldset>
+						{% endif %}
+
 					{% endswitch %}
 
 			{% endfor %}
