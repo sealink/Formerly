@@ -1,4 +1,4 @@
-# Formerly 1.5.0
+# Formerly
 
 ## Installing
 
@@ -55,6 +55,8 @@ regular `ElementCriteriaModel`s. For example, to list submissions to the
 ```
 
 ## Updates
+* 1.5.1
+  * Rebase of SeaLink's version - Note, `Coded` has become `Custom`, so please review code before rolling this into any existing codes
 * 1.5.0
   * HOT FIX - Submissions view not working in Craft 2.5. It now works. I haven't quite got the new settings filter working, but the priority was to get a release out there that works
 * 1.4.0
