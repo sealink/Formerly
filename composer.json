@@ -1,14 +1,19 @@
 {
-    "name": "xodigital/formerly",
-    "description": "Craft Plugin that allows users to build their own forms and view form submissions",
+    "name": "sealink/formerly",
+    "description": "Form Plugin for Craft",
     "authors": [
         {
-            "name": "XO Digital",
-            "email": "hello@xodigital.com.au"
+            "name": "Alex Brindal",
+            "email": "alex.brindal@sealink.com.au"
         }
     ],
     "type": "craft-plugin",
     "require": {
         "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-paths": {
+            "formerly": ["type:craft-plugin"]
+        }
     }
 }
