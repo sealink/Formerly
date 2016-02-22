@@ -1,19 +1,19 @@
 {
-    "name": "sealink/formerly",
-    "description": "Form Plugin for Craft",
-    "authors": [
-        {
-            "name": "Alex Brindal",
-            "email": "alex.brindal@sealink.com.au"
-        }
-    ],
-    "type": "craft-plugin",
-    "require": {
-        "composer/installers": "~1.0"
-    },
-    "extra": {
-        "installer-paths": {
-            "formerly": ["type:craft-plugin"]
-        }
-    }
+  "name": "sealink/formerly",
+  "description": "Form Plugin for Craft",
+  "authors": [
+      {
+          "name": "Alex Brindal",
+          "email": "alex.brindal@sealink.com.au"
+      }
+  ],
+  "type": "craft-plugin",
+  "require": {
+      "composer/installers": "~1.0"
+  },
+  "extra": {
+      "installer-paths": {
+          "${name}/formerly": ["type:craft-plugin"]
+      }
+  }
 }
