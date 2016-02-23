@@ -10,7 +10,7 @@ class FormerlyPlugin extends BasePlugin
 
 	public function getVersion()
 	{
-	    return '1.5.1';
+	    return '1.5.2';
 	}
 
 	public function getDeveloper()
@@ -49,7 +49,7 @@ class FormerlyPlugin extends BasePlugin
 		{
 			foreach($context["submission"]->getForm()->getQuestions() as $question)
 			{
-				if($question["type"] == 'Coded')
+				if($question["type"] == 'Custom')
 				{
 					$context['jsonParsed'][$question["handle"]] = json_decode($context["submission"][$question["handle"]], true);
 				}
