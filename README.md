@@ -55,6 +55,9 @@ regular `ElementCriteriaModel`s. For example, to list submissions to the
 ```
 
 ## Updates
+* 1.6.0
+  * Rebase of SeaLink's version - Note, `Coded` has become `Custom`, so
+please review code before rolling this into any existing codes
 * 1.5.1
   * Fix email template submission so twig filters can be used. This helps with a lot of reported issues. You can now format dates the way you want. And also output multi value fields like checkbox lists using {mycheckboxlist|join(',')}
 * 1.5.0
