@@ -96,7 +96,7 @@ class Formerly_SubmissionElementType extends BaseElementType
 		{
 			//Output JSON Objects in a nicer format
 			$jsnObject = json_decode($value);
-			if($jsnObject != null)
+			if($jsnObject != null && is_array($jsnObject) || is_object($jsnObject))
 			{
 				return Formerly_SubmissionElementType::arrayOutputFormatter($jsnObject);
 			}
