@@ -14,6 +14,9 @@ class Formerly_FormRecord extends BaseRecord
 			'name'          => array(AttributeType::Name, 'required' => true),
 			'handle'        => array(AttributeType::Handle, 'required' => true),
 			'emails'        => AttributeType::Mixed,
+			'reCaptcha'          => array(AttributeType::Bool, 'label' => 'Use Google reCaptcha', 'default' => false),
+			'reCaptchaSiteKey'   => array(AttributeType::String, 'label' => 'Google reCaptcha API Site Key'),
+			'reCaptchaSecretKey' => array(AttributeType::String, 'label' => 'Google reCaptcha API Secret Key'),
 		);
 	}
 

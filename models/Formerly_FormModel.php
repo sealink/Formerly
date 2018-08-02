@@ -6,12 +6,15 @@ class Formerly_FormModel extends BaseModel
 	protected function defineAttributes()
 	{
 		return array(
-			'id'            => AttributeType::Number,
-			'fieldGroupId'  => AttributeType::Number,
-			'name'          => AttributeType::String,
-			'instructions'  => AttributeType::String,
-			'handle'        => AttributeType::String,
-			'emails'        => AttributeType::Mixed,
+			'id'            		=> AttributeType::Number,
+			'fieldGroupId'  		=> AttributeType::Number,
+			'name'          		=> AttributeType::String,
+			'instructions'  		=> AttributeType::String,
+			'handle'        		=> AttributeType::String,
+			'emails'        		=> AttributeType::Mixed,
+			'reCaptcha'           => AttributeType::Bool,
+			'reCaptchaSiteKey'    => AttributeType::String,
+			'reCaptchaSecretKey'  => AttributeType::String,
 		);
 	}
 

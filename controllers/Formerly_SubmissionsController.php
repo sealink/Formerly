@@ -119,9 +119,21 @@ class Formerly_SubmissionsController extends BaseController
 			}
 		}
 
+		// reCaptcha verification
+		$captchaResponse = craft()->request->getPost('g-recaptcha-response');
+		$form = $submission->getForm();
+
+		$verified = true;
+		if ($form->reCaptcha == 1) {
+			$verified = craft()->formerly_verify->verify($captchaResponse, $form);
+			if (!$verified) {
+				$submission->addError('reCaptcha', 'Failed reCAPTCHA validation.');
+			}
+		}
+
 		$submission->setContentFromPost('questions');
 
-		if (craft()->formerly_submissions->postSubmission($submission))
+		if ($verified && craft()->formerly_submissions->postSubmission($submission))
 		{
 			if (craft()->request->isAjaxRequest())
 				$this->returnJson(array('ok' => 'yes', 'id' => $submission->id));

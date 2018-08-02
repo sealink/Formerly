@@ -40,15 +40,15 @@
 
 
 				{% if question %}
-				<div class="field" id="questions-15-name-field">
-					<div class="heading">
-						<label for="questions-15-name">Email Tag
-						</label>
+					<div class="field" id="questions-15-name-field">
+						<div class="heading">
+							<label for="questions-15-name">Email Tag
+							</label>
+						</div>
+						<div class="input ltr">
+							{{'{' ~ (question ?  question.handle | replace({(emailPrefix) : ''})) ~ '}'}}
+						</div>
 					</div>
-					<div class="input ltr">
-						{{'{' ~ (question ?  question.handle | replace({(emailPrefix) : ''})) ~ '}'}}
-					</div>
-				</div>
 				{% endif %}
 
 				{{ forms.textField({
@@ -191,6 +191,30 @@
 			value: form.handle,
 			errors: form.getErrors('handle'),
 			required: true
+		}) }}
+
+		{{ forms.checkbox({
+			label: 'Use Google reCaptcha'|t,
+			id: 'reCaptcha',
+			name: 'reCaptcha',
+			checked: form ? form.reCaptcha,
+			errors: form.getErrors('reCaptcha')
+		}) }}
+
+		{{ forms.textField({
+			label: 'Google reCaptcha Site Key'|t,
+			id: 'reCaptchaSiteKey',
+			name: 'reCaptchaSiteKey',
+			value: form.reCaptchaSiteKey,
+			errors: form.getErrors('reCaptchaSiteKey')
+		}) }}
+
+		{{ forms.textField({
+			label: 'Google reCaptcha Secret Key'|t,
+			id: 'reCaptchaSecretKey',
+			name: 'reCaptchaSecretKey',
+			value: form.reCaptchaSecretKey,
+			error: form.getErrors('reaptchaSecretKey')
 		}) }}
 
 		<hr>

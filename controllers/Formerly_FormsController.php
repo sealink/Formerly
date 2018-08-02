@@ -104,6 +104,9 @@ class Formerly_FormsController extends BaseController
 		$form->name    = craft()->request->getPost('name');
 		$form->handle  = craft()->request->getPost('handle');
 		$form->emails  = craft()->request->getPost('emails');
+		$form->reCaptcha  = craft()->request->getPost('reCaptcha');
+		$form->reCaptchaSiteKey  = craft()->request->getPost('reCaptchaSiteKey');
+		$form->reCaptchaSecretKey  = craft()->request->getPost('reCaptchaSecretKey');
 
 		$postedQuestions = craft()->request->getPost('questions');
 		$sortOrder = 0;
