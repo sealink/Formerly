@@ -1,4 +1,4 @@
-# Formerly 1.5.0
+# Formerly 1.7.0
 
 ## Installing
 
@@ -55,6 +55,8 @@ regular `ElementCriteriaModel`s. For example, to list submissions to the
 ```
 
 ## Updates
+* 1.7.0
+  * Add reCaptcha validation
 * 1.6.0
   * Rebase of SeaLink's version - Note, `Coded` has become `Custom`, so
 please review code before rolling this into any existing codes
