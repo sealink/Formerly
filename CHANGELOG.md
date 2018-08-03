@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-* [DC-1475] Modify Formerly plugin to add reCaptcha validation 
+* [DC-1475] Modify Formerly plugin to add reCaptcha validation
 * [DC-1483] Fix an error to display the submission lists on CMS
 
 ## 1.6.0
