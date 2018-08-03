@@ -1,6 +1,6 @@
 # Formerly
 
-## Unreleased
+## 1.7.0
 
 * [DC-1475] Modify Formerly plugin to add reCaptcha validation
 * [DC-1483] Fix an error to display the submission lists on CMS
