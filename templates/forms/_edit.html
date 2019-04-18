@@ -193,30 +193,6 @@
       required: true
     }) }}
 
-    {{ forms.checkbox({
-      label: 'Use Google reCaptcha'|t,
-      id: 'reCaptcha',
-      name: 'reCaptcha',
-      checked: form ? form.reCaptcha,
-      errors: form.getErrors('reCaptcha')
-    }) }}
-
-    {{ forms.textField({
-      label: 'Google reCaptcha Site Key'|t,
-      id: 'reCaptchaSiteKey',
-      name: 'reCaptchaSiteKey',
-      value: form.reCaptchaSiteKey,
-      errors: form.getErrors('reCaptchaSiteKey')
-    }) }}
-
-    {{ forms.textField({
-      label: 'Google reCaptcha Secret Key'|t,
-      id: 'reCaptchaSecretKey',
-      name: 'reCaptchaSecretKey',
-      value: form.reCaptchaSecretKey,
-      error: form.getErrors('reaptchaSecretKey')
-    }) }}
-
     <hr>
 
     <h2>Emails</h2>

@@ -54,9 +54,6 @@ class Formerly_FormsService extends BaseApplicationComponent
     $formRecord->name    = $form->name;
     $formRecord->handle  = $form->handle;
     $formRecord->emails  = $form->emails;
-    $formRecord->reCaptcha  = $form->reCaptcha;
-    $formRecord->reCaptchaSiteKey  = $form->reCaptchaSiteKey;
-    $formRecord->reCaptchaSecretKey  = $form->reCaptchaSecretKey;
 
     $transaction = craft()->db->getCurrentTransaction() === null ? craft()->db->beginTransaction() : null;
     try

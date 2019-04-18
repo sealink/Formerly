@@ -12,9 +12,6 @@ class Formerly_FormModel extends BaseModel
       'instructions'      => AttributeType::String,
       'handle'            => AttributeType::String,
       'emails'            => AttributeType::Mixed,
-      'reCaptcha'           => AttributeType::Bool,
-      'reCaptchaSiteKey'    => AttributeType::String,
-      'reCaptchaSecretKey'  => AttributeType::String,
     );
   }
 

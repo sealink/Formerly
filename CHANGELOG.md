@@ -1,5 +1,9 @@
 # Formerly
 
+## Unreleased
+
+* [DC-2340] Update reCaptcha version to 3
+
 ## 1.7.0
 
 * [DC-1475] Modify Formerly plugin to add reCaptcha validation

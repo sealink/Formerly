@@ -124,11 +124,9 @@ class Formerly_SubmissionsController extends BaseController
     $form = $submission->getForm();
 
     $verified = true;
-    if ($form->reCaptcha == 1) {
-      $verified = craft()->formerly_verify->verify($captchaResponse, $form);
-      if (!$verified) {
-        $submission->addError('reCaptcha', 'Failed reCAPTCHA validation.');
-      }
+    $verified = craft()->formerly_verify->verify($captchaResponse, $form);
+    if (!$verified) {
+      $submission->addError('reCaptcha', 'Failed reCAPTCHA validation.');
     }
 
     $submission->setContentFromPost('questions');

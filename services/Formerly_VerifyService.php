@@ -7,8 +7,10 @@ class Formerly_VerifyService extends BaseApplicationComponent
   {
     $base = "https://www.google.com/recaptcha/api/siteverify";
 
+    $recaptchaSettings = craft()->globals->getSetByHandle('recaptcha');
+
     $params = array(
-      'secret' =>  $form->reCaptchaSecretKey,
+      'secret' => $recaptchaSettings->reCaptchaSecretKey,
       'response' => $captchaResponse
     );
 
@@ -21,7 +23,7 @@ class Formerly_VerifyService extends BaseApplicationComponent
     if($result->getStatusCode() == 200)
     {
       $json = $result->json();
-      if($json['success'])
+      if($json['success']) 
       {
         return true;
       } else {
