@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-* [DC-2340] Update reCaptcha version to 3
+* [DC-2340] Update reCaptcha to version 3
 
 ## 1.7.0
 
